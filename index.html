@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery with Bootstrap exercise</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Liisa Auer">
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/my-styles.css" rel="stylesheet">
+    </head>
+    <body>
+        <main class="container"> 
+            <header class="row bg-dark">
+                <div class="col">
+                    <h1 class="text-success">jQuery with Bootstrap</h1>
+                </div>
+            </header>
+
+            <section class="row"> 
+                <div class="offset-lg-2 col-md-6 col-lg-4">
+                    <h3 class="text-warning">Circle or Square</h3>
+
+                    <form>  
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" 
+                                   name="rad_cir_opt" checked value="1" id="radius">
+                            <label class="form-check-label" for="radius">Circle</label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" 
+                                   name="rad_cir_opt" value="2" id="square">
+                            <label class="form-check-label" for="square">Square</label>
+                        </div>
+
+                        <div class="form-group">    
+                            <label class="col-form-label" for="radius_side">Radius/Side</label>
+                            <div>
+                                <input type="number" class="form-control short" id="radius_side">
+                            </div>
+                        </div>                         
+
+                        <button type="button" class="btn btn-warning" id="calculate">Calculate</button>
+
+                    </form>                   
+                    <p class="mt-3" id="result"></p> 
+                </div>                
+
+                <div class="col-md-6 col-lg-4">
+                    <h3 class="text-info">Circle and Square</h3>
+
+                    <form>
+                        <div class="form-row">
+                        <div class="form-check form-check-inline col">
+                            <input type="checkbox" class="form-check-input rad_cir" 
+                                   value="1" data-content="#radius2"
+                                   data-result="#circle2" id="chk1">
+                            <label class="form-check-label" for="chk1">Circle</label>
+                        </div>
+                            <div class="col">
+                                <input type="number" class="form-control invisible" 
+                                    id="radius2" placeholder="radius">
+                            </div>                              
+                        </div>  
+                        
+                        <div class="form-row">
+                        <div class="form-check form-check-inline col">
+                            <input type="checkbox" class="form-check-input rad_cir" 
+                                   value="2" data-content="#side2"
+                                   data-result="#square2" id="chk2">
+                            <label class="form-check-label" for="chk2">Square</label>
+                        </div>
+                            <div class="col">
+                                <input type="number" class="form-control invisible" 
+                                    id="side2" placeholder="side">
+                            </div>                                                          
+                        </div>
+
+                        <button type="button" class="btn btn-warning" 
+                            id="calculate2">Calculate</button>
+                    </form>                    
+
+                    <p id="circle2" class="mt-3"></p>
+                    <p id="square2"></p>
+                </div>
+            </section>
+            
+            <section class="row">
+                <div class="offset-lg-2 col-md-6 col-lg-4">
+                    <h3 class="text-primary">Random numbers 1</h3>
+
+                    <form>                        
+                        <div class="form-check">
+                            <input type="radio" name="num_scale" id="small" 
+                                   data-min="1" data-max="10" class="form-check-input" checked>
+                            <label for="small" class="form-check-label">1 - 10</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="radio" name="num_scale" id="middle" 
+                                   data-min="1" data-max="20" class="form-check-input">
+                            <label for="middle" class="form-check-label">1 - 20</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="radio" name="num_scale" id="large" 
+                                   data-min="1" data-max="50" class="form-check-input">
+                            <label for="large" class="form-check-label">1 - 50</label>
+                        </div>
+
+                        <button type="button" class="btn btn-primary mt-3 mb-3" id="numbers">
+                            Numbers</button>
+                    </form>
+
+                    <p>Numbers: <span id="rnd_numbers"></span></p> 
+                    <p>Count: <span id="total" class="badge badge-primary"></span></p>
+                </div>                
+
+                <div class="col-md-6 col-lg-4">
+                    <h3 class="text-success">Random numbers 2</h3>
+                    <form>
+                        <div class="input-group mb-3 short">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Min</span>
+                            </div>
+                            <input type="number" class="form-control min_max" id="min">
+                        </div>
+
+                        <div class="input-group mb-3 short">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Max</span>
+                            </div>
+                            <input type="number" class="form-control min_max" id="max">
+                        </div>
+
+                        <button type="button" class="btn btn-success mb-3" id="random">
+                            Random</button>
+                    </form>
+
+                    <p>Random numbers: <span id="randoms"></span></p>
+                </div> 
+                
+            </section>
+
+            <section class="row">
+                <div class="col">
+                    <h3 class="text-danger">Throw dices</h3>
+
+                    <button type="button" class="btn btn-primary" 
+                        id="throw">Throw dices</button>
+
+                    <ul id="dices">
+                    </ul>
+
+                    <p>Amount of pairs: <span id="pairs" class="badge badge-primary"></span> <span id="count" class="badge badge-secondary"></span></p> 
+                </div>
+
+            </section>
+
+            <footer class="row bg-dark">
+                <div class="col">
+                    <p class="text-center text-light mt-2 mb-2" >KAROLIINA VIRTANEN</p>
+                </div>
+            </footer>
+
+        </main>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
+        crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" 
+                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" 
+        crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
+                integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" 
+        crossorigin="anonymous"></script>
+        <script src="js/mycode.js"></script>
+    </body>
+</html>
+

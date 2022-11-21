@@ -1,0 +1,26 @@
+section {
+    background-color: #FEF3DC;
+} 
+
+.short {
+    width: 10em;
+}
+
+ul#dices {
+    padding-left: 0;
+}
+#dices li  {
+    display: inline-block;
+    width: 8em;
+}
+
+#dices li span {
+    display: inline-block;
+    width: 2em;
+}
+
+.badge {
+    font-size: 1em;
+}
+
+
